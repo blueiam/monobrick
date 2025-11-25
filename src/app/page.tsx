@@ -1,65 +1,64 @@
-import Image from "next/image";
+import Link from "next/link";
+import { ArtworkGallery } from "@/components/artwork-gallery";
+import { FeaturedArtist } from "@/components/featured-artist";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+    <div className="space-y-16 bg-stone-950 pb-20 pt-10 sm:pt-16">
+      <HeroSection />
+      <section className="mx-auto max-w-6xl space-y-10 px-4 sm:px-6 lg:px-8">
+        <ArtworkGallery />
+        <ViewAllBanner />
+        <FeaturedArtist />
+      </section>
+    </div>
+  );
+}
+
+function HeroSection() {
+  return (
+    <section className="hero-background relative flex min-h-[420px] w-full flex-col justify-end overflow-hidden rounded-[56px] px-6 pb-12 pt-48 text-white shadow-2xl shadow-black/60 sm:px-10">
+      <p className="text-sm uppercase tracking-[0.4em] text-amber-100/80">
+        JEON YOUNG HWAN
+      </p>
+      <h1 className="mt-3 text-4xl font-light leading-tight sm:text-6xl">
+        Transforming Cycle
+      </h1>
+      {/* <p className="mt-4 max-w-2xl text-lg text-stone-100">
+        Kinetic sculptures forged from steel, volcanic stone, and light. Every
+        rotation leaves a new trace on the canvas of space.
+      </p> */}
+      <div className="mt-6 flex flex-wrap gap-4 text-sm font-semibold">
+        <Link
+          href="/news"
+          className="rounded-full bg-white/90 px-6 py-3 text-stone-900 transition hover:bg-white"
+        >
+          Latest News
+        </Link>
+        {/* <Link
+          href="/about"
+          className="rounded-full border border-white/70 px-6 py-3 text-white transition hover:border-amber-200 hover:text-amber-200"
+        >
+          About Monobrick
+        </Link>*/}
+      </div>
+    </section>
+  );
+}
+
+function ViewAllBanner() {
+  return (
+    <div className="rounded-[32px] border border-white/10 bg-gradient-to-b from-white/10 to-transparent px-6 py-10 text-center text-white shadow-inner shadow-white/10">
+      <p className="text-sm uppercase tracking-[0.4em] text-stone-300">
+       Newsroom
+      </p>
+      <p className="mt-2 text-3xl font-semibold">Discover the latest updates</p>
+      <Link
+        href="/news"
+        className="mt-6 inline-flex rounded-full border border-white/30 px-6 py-3 text-sm uppercase tracking-wide transition hover:border-amber-200 hover:text-amber-200"
+      >
+        Explore releases
+      </Link>
     </div>
   );
 }

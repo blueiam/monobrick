@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## MONOBRICK Gallery
 
-## Getting Started
+Next.js (App Router) site used to present MONOBRICK’s artwork catalog, news feed, and studio information. The UI ships with an artwork filter, Supabase-powered newsroom, and static About page that highlights contact + residency details.
 
-First, run the development server:
+### Stack
+
+- **Next.js 15 + React** with the App Router and server components  
+- **Supabase** for news posts (gracefully falls back to demo data when env vars are missing)  
+- **Tailwind** through the new `@import "tailwindcss"` pipeline  
+- **Vercel** for hosting/build/preview, backed by **GitHub** source control
+
+### Local development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# open http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Environment variables
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Create a `.env.local` file and set the Supabase credentials that expose the `posts` table:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+SUPABASE_URL="https://xyzcompany.supabase.co"
+SUPABASE_ANON_KEY="public-anon-key"
+```
 
-## Learn More
+The News page (`/news`) queries `id, title, content, category, created_at, image_url, file_url` from the `posts` table and sorts by `created_at` descending. When the variables are missing or the query fails, the fallback editorial entries in `src/data/news.ts` are used so the UI never breaks.
 
-To learn more about Next.js, take a look at the following resources:
+### GitHub → Vercel workflow
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Create a new GitHub repo and push this folder (`main` branch).  
+2. In Vercel, click **Import Project → GitHub → monobrick**.  
+3. Add the Supabase env vars under *Settings → Environment Variables* (Production + Preview).  
+4. Trigger the initial build; Vercel will automatically provision preview URLs for every pull request.  
+5. Protect `main` on GitHub so changes flow through PR review before deployment.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Connecting Supabase
 
-## Deploy on Vercel
+1. In Supabase, create a new project and add a `posts` table with columns:
+   - `id` (bigint, auto increment)
+   - `created_at` (timestamp with time zone, default `now()`)
+   - `title` (text)
+   - `content` (text)
+   - `category` (text)
+   - `image_url` (text, optional)
+   - `file_url` (text, optional for downloads/press kits)
+2. Insert initial rows via the Table Editor or SQL insert statements.
+3. Copy the **Project URL** and **anon public key** into `.env.local` (and Vercel).  
+4. Deploy — the News route will now render live data within ~60 seconds because of ISR (`revalidate = 60`).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Project structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `src/app/page.tsx` – Hero + artwork gallery with filter UI  
+- `src/app/news/page.tsx` – Server component that calls Supabase (`src/lib/news.ts`)  
+- `src/app/about/page.tsx` – Static gallery overview, visit info  
+- `src/components` – Header, footer, gallery, feature modules  
+- `src/data` – Artwork seeds + fallback news entries
+
+### Useful scripts
+
+```bash
+npm run dev      # local development
+npm run build    # production build check
+npm run lint     # lint using eslint config
+```
+
+### Deployment checklist
+
+- [ ] Supabase table + env vars configured  
+- [ ] GitHub repo connected to Vercel  
+- [ ] `npm run lint` + `npm run build` succeed locally  
+- [ ] Optional: add `SUPABASE_SERVICE_ROLE_KEY` as a Vercel Secret for server-only admin tasks
+
