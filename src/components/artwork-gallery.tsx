@@ -48,27 +48,27 @@ export function ArtworkGallery() {
         )}
       </div> */}
 
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="grid gap-6 md:grid-cols-2">
         {artworks.map((artwork) => (
           <article
             key={artwork.id}
-            className="group overflow-hidden rounded-3xl border border-white/10 bg-stone-900/60 shadow-2xl shadow-black/40 transition hover:-translate-y-1 hover:border-amber-200/40"
+            className="group flex flex-col"
           >
-            <div className="relative aspect-[4/3] w-full">
+            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl">
               <Image
                 src={artwork.image}
                 alt={artwork.title}
                 fill
                 className="object-cover transition duration-500 group-hover:scale-105"
               />
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/90" />
-              <div className="absolute bottom-0 p-5 text-white">
-                <p className="text-xs uppercase tracking-wide text-stone-200">
-                  {artwork.artist} · {artwork.year}
-                </p>
-                <h3 className="text-xl font-semibold">{artwork.title}</h3>
-                <p className="text-sm text-stone-300">{artwork.medium}</p>
-              </div>
+            </div>
+            <div className="mt-4">
+              <h3 className="text-lg font-semibold text-white">
+                {artwork.title}
+              </h3>
+              <p className="mt-1 text-sm text-white/60">
+                {artwork.year} · {artwork.artist}
+              </p>
             </div>
           </article>
         ))}
