@@ -13,55 +13,53 @@ export const artworks: Artwork[] = [
     title: "Transforming Cycle",
     artist: "Jeon Young Hwan",
     year: "2024",
-    medium: "Mixed Media",
-    image:
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80",
+    medium: "Aluminum-Paint",
+    image: "/images/tr01.jpg",
   },
   {
     id: "flight-script",
-    title: "Flight Script",
-    artist: "Hong Yerin",
-    year: "2025",
-    medium: "Photography",
-    image:
-      "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1200&q=80",
-  },
-  {
-    id: "electric-bouquet",
-    title: "Electric Bouquet",
-    artist: "Hong Yerin",
-    year: "2024",
-    medium: "Digital Sculpture",
-    image:
-      "https://images.unsplash.com/photo-1470246973918-29a93221c455?auto=format&fit=crop&w=1200&q=80",
-  },
-  {
-    id: "lattice-drift",
-    title: "Lattice Drift",
-    artist: "Seo Hye Min",
-    year: "2022",
-    medium: "Metal Sculpture",
-    image:
-      "https://images.unsplash.com/photo-1465310477141-6fb93167a273?auto=format&fit=crop&w=1200&q=80",
-  },
-  {
-    id: "tidal-nest",
-    title: "Tidal Nest",
-    artist: "Seo Hye Min",
-    year: "2025",
-    medium: "Copperwork",
-    image:
-      "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1200&q=80",
-  },
-  {
-    id: "fractured-horizon",
-    title: "Fractured Horizon",
+    title: "Space-Fom the One",
     artist: "Jeon Young Hwan",
-    year: "2023",
-    medium: "Aluminum",
-    image:
-      "https://images.unsplash.com/photo-1481277542470-605612bd2d61?auto=format&fit=crop&w=1600&q=80",
+    year: "2019",
+    medium: "Aluminum-Paint",
+    image: "/images/apple001.jpg",
   },
+  // {
+  //   id: "electric-bouquet",
+  //   title: "Electric Bouquet",
+  //   artist: "Hong Yerin",
+  //   year: "2024",
+  //   medium: "Digital Sculpture",
+  //   image:
+  //     "https://images.unsplash.com/photo-1470246973918-29a93221c455?auto=format&fit=crop&w=1200&q=80",
+  // },
+  // {
+  //   id: "lattice-drift",
+  //   title: "Lattice Drift",
+  //   artist: "Seo Hye Min",
+  //   year: "2022",
+  //   medium: "Metal Sculpture",
+  //   image:
+  //     "https://images.unsplash.com/photo-1465310477141-6fb93167a273?auto=format&fit=crop&w=1200&q=80",
+  // },
+  // {
+  //   id: "tidal-nest",
+  //   title: "Tidal Nest",
+  //   artist: "Seo Hye Min",
+  //   year: "2025",
+  //   medium: "Copperwork",
+  //   image:
+  //     "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1200&q=80",
+  // },
+  // {
+  //   id: "fractured-horizon",
+  //   title: "Fractured Horizon",
+  //   artist: "Jeon Young Hwan",
+  //   year: "2023",
+  //   medium: "Aluminum",
+  //   image:
+  //     "https://images.unsplash.com/photo-1481277542470-605612bd2d61?auto=format&fit=crop&w=1600&q=80",
+  // },
 ];
 
 export const featuredArtist = {

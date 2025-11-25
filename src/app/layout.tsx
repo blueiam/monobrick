@@ -23,11 +23,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${plusJakarta.variable} bg-stone-950 text-white`}>
-        <div className="flex min-h-screen flex-col">
-          <SiteHeader />
-          <main className="flex-1">{children}</main>
-          <SiteFooter />
-        </div>
+        <SiteHeader transparent />
+        <main>{children}</main>
+        <SiteFooter />
       </body>
     </html>
   );

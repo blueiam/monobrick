@@ -1,35 +1,35 @@
 'use client';
 
-import { useMemo, useState } from "react";
+// import { useMemo, useState } from "react";
 import Image from "next/image";
 import { artworks } from "@/data/artworks";
 
-const allArtists = ["All Artists", ...new Set(artworks.map((art) => art.artist))];
-const allMedia = ["All Techniques", ...new Set(artworks.map((art) => art.medium))];
+// const allArtists = ["All Artists", ...new Set(artworks.map((art) => art.artist))];
+// const allMedia = ["All Techniques", ...new Set(artworks.map((art) => art.medium))];
 
 export function ArtworkGallery() {
-  const [artist, setArtist] = useState(allArtists[0]);
-  const [medium, setMedium] = useState(allMedia[0]);
+  // const [artist, setArtist] = useState(allArtists[0]);
+  // const [medium, setMedium] = useState(allMedia[0]);
 
-  const filteredArtworks = useMemo(() => {
-    return artworks.filter((art) => {
-      const matchArtist = artist === allArtists[0] || art.artist === artist;
-      const matchMedium = medium === allMedia[0] || art.medium === medium;
-      return matchArtist && matchMedium;
-    });
-  }, [artist, medium]);
+  // const filteredArtworks = useMemo(() => {
+  //   return artworks.filter((art) => {
+  //     const matchArtist = artist === allArtists[0] || art.artist === artist;
+  //     const matchMedium = medium === allMedia[0] || art.medium === medium;
+  //     return matchArtist && matchMedium;
+  //   });
+  // }, [artist, medium]);
 
   return (
     <section className="space-y-6">
-      <div className="flex flex-wrap gap-4 text-xs uppercase tracking-wide text-white">
+      {/* <div className="flex flex-wrap gap-4 text-white">
         <FilterSelect
-          label="Artist"
+          label="ARTIST"
           value={artist}
           options={allArtists}
           onChange={setArtist}
         />
         <FilterSelect
-          label="Technique"
+          label="TECHNIQUE"
           value={medium}
           options={allMedia}
           onChange={setMedium}
@@ -46,10 +46,10 @@ export function ArtworkGallery() {
             Clear
           </button>
         )}
-      </div>
+      </div> */}
 
       <div className="grid gap-4 md:grid-cols-2">
-        {filteredArtworks.map((artwork) => (
+        {artworks.map((artwork) => (
           <article
             key={artwork.id}
             className="group overflow-hidden rounded-3xl border border-white/10 bg-stone-900/60 shadow-2xl shadow-black/40 transition hover:-translate-y-1 hover:border-amber-200/40"
@@ -77,35 +77,48 @@ export function ArtworkGallery() {
   );
 }
 
-type FilterSelectProps = {
-  label: string;
-  value: string;
-  options: string[];
-  onChange: (value: string) => void;
-};
+// type FilterSelectProps = {
+//   label: string;
+//   value: string;
+//   options: string[];
+//   onChange: (value: string) => void;
+// };
 
-function FilterSelect({
-  label,
-  value,
-  options,
-  onChange,
-}: FilterSelectProps) {
-  return (
-    <label className="flex items-center gap-2 rounded-full border border-white/20 bg-stone-900/80 px-4 py-2 text-[0.7rem] font-semibold">
-      {label}
-      <select
-        className="bg-transparent text-white outline-none"
-        value={value}
-        onChange={(event) => onChange(event.currentTarget.value)}
-      >
-        {options.map((option) => (
-          <option key={option} value={option} className="text-black">
-            {option}
-          </option>
-        ))}
-      </select>
-    </label>
-  );
-}
+// function FilterSelect({
+//   label,
+//   value,
+//   options,
+//   onChange,
+// }: FilterSelectProps) {
+//   return (
+//     <label className="flex items-center gap-3 rounded-lg border border-gray-600 bg-gray-800 px-4 py-3 text-sm font-semibold">
+//       <span className="text-white">{label}</span>
+//       <select
+//         className="flex-1 appearance-none bg-transparent text-white outline-none cursor-pointer"
+//         value={value}
+//         onChange={(event) => onChange(event.currentTarget.value)}
+//       >
+//         {options.map((option) => (
+//           <option key={option} value={option} className="bg-gray-800 text-white">
+//             {option}
+//           </option>
+//         ))}
+//       </select>
+//       <svg
+//         className="pointer-events-none h-4 w-4 text-white"
+//         fill="none"
+//         stroke="currentColor"
+//         viewBox="0 0 24 24"
+//       >
+//         <path
+//           strokeLinecap="round"
+//           strokeLinejoin="round"
+//           strokeWidth={2}
+//           d="M19 9l-7 7-7-7"
+//         />
+//       </svg>
+//     </label>
+//   );
+// }
 
 

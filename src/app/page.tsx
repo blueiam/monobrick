@@ -4,43 +4,46 @@ import { FeaturedArtist } from "@/components/featured-artist";
 
 export default function Home() {
   return (
-    <div className="space-y-16 bg-stone-950 pb-20 pt-10 sm:pt-16">
+    <>
       <HeroSection />
-      <section className="mx-auto max-w-6xl space-y-10 px-4 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-6xl space-y-10 px-4 pb-20 pt-16 sm:px-6 lg:px-8">
         <ArtworkGallery />
         <ViewAllBanner />
         <FeaturedArtist />
       </section>
-    </div>
+    </>
   );
 }
 
 function HeroSection() {
   return (
-    <section className="hero-background relative flex min-h-[420px] w-full flex-col justify-end overflow-hidden rounded-[56px] px-6 pb-12 pt-48 text-white shadow-2xl shadow-black/60 sm:px-10">
-      <p className="text-sm uppercase tracking-[0.4em] text-amber-100/80">
-        JEON YOUNG HWAN
-      </p>
-      <h1 className="mt-3 text-4xl font-light leading-tight sm:text-6xl">
-        Transforming Cycle
-      </h1>
-      {/* <p className="mt-4 max-w-2xl text-lg text-stone-100">
-        Kinetic sculptures forged from steel, volcanic stone, and light. Every
-        rotation leaves a new trace on the canvas of space.
-      </p> */}
-      <div className="mt-6 flex flex-wrap gap-4 text-sm font-semibold">
-        <Link
-          href="/news"
-          className="rounded-full bg-white/90 px-6 py-3 text-stone-900 transition hover:bg-white"
-        >
-          Latest News
-        </Link>
-        {/* <Link
-          href="/about"
-          className="rounded-full border border-white/70 px-6 py-3 text-white transition hover:border-amber-200 hover:text-amber-200"
-        >
-          About Monobrick
-        </Link>*/}
+    <section className="relative flex h-screen w-full flex-col justify-end overflow-hidden px-6 pb-16 pt-0 mt-0 text-white shadow-black/40 sm:px-10">
+      <video
+        className="absolute inset-0 h-full w-full object-cover"
+        autoPlay
+        loop
+        muted
+        playsInline
+        poster="/images/hero-transforming-cycle.jpg"
+      >
+        <source src="/videos/black_box.mp4" type="video/mp4" />
+      </video>
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/55 to-black/85" />
+
+      <div className="relative z-10">
+        <p className="text-sm uppercase tracking-[0.4em] text-amber-100/80">
+          2025
+        </p>
+        <h1 className="mt-3 text-4xl font-light leading-tight sm:text-6xl">
+          Monobrick
+        </h1>
+        {/* <p className="mt-4 max-w-2xl text-lg text-stone-100">
+          Kinetic sculptures forged from steel, volcanic stone, and light. Every
+          rotation leaves a new trace on the canvas of space.
+        </p> */}
+        <div className="mt-6 flex flex-wrap gap-4 text-sm font-semibold">
+          {/* CTA buttons intentionally hidden */}
+        </div>
       </div>
     </section>
   );

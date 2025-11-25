@@ -5,14 +5,14 @@ export function SiteFooter() {
         <p>© {new Date().getFullYear()} MONOBRICK Gallery. All rights reserved.</p>
         <div className="flex gap-6">
           <a
-            href="https://github.com/"
+            href="https://instagram.com/gallerymonobrick"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="transition hover:text-white"
           >
-            GitHub
+            instagram
           </a>
-          <a
+          {/* <a
             href="https://supabase.com/"
             target="_blank"
             rel="noreferrer"
@@ -27,8 +27,8 @@ export function SiteFooter() {
             className="transition hover:text-white"
           >
             Vercel
-          </a>
-        </div>
+          </a>*/}
+        </div> 
       </div>
     </footer>
   );

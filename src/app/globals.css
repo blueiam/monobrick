@@ -18,10 +18,3 @@ body {
     "Segoe UI", sans-serif;
   letter-spacing: 0.01em;
 }
-
-.hero-background {
-  background-image: url("/images/hero-transforming-cycle.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}

@@ -13,18 +13,18 @@ export default function AboutPage() {
             About
           </p>
           <h1 className="mt-4 text-4xl font-semibold text-white">
-            MONOBRICK Gallery
+            MONOBRICK
           </h1>
-          <p className="mt-6 text-lg text-stone-200">
-          <p> Monobrick is an emerging contemporary art gallery dedicated to presenting fresh perspectives and new artistic voices.
-We aim to create a space where artists and audiences can naturally connect through painting, sculpture, installation, photography, and other diverse media.</p>
+          <div className="mt-6 space-y-4 text-lg text-stone-200">
+            <p>Monobrick is an emerging contemporary art gallery dedicated to presenting fresh perspectives and new artistic voices.
+            We aim to create a space where artists and audiences can naturally connect through painting, sculpture, installation, photography, and other diverse media.</p>
 
-Inspired by the idea of a “single solid brick,” Monobrick represents a strong foundation for artistic experimentation and creative growth.
-<p>We focus on showcasing works that highlight the individuality and vision of each artist, featuring both rising talents and creators with unique worlds of expression.</p>
+            <p>Inspired by the idea of a &ldquo;single solid brick,&rdquo; Monobrick represents a strong foundation for artistic experimentation and creative growth.
+            We focus on showcasing works that highlight the individuality and vision of each artist, featuring both rising talents and creators with unique worlds of expression.</p>
 
-Monobrick will continue to develop distinctive exhibitions and a reliable artwork management system,
-becoming an accessible and forward-looking platform for contemporary art.
-          </p>
+            <p>Monobrick will continue to develop distinctive exhibitions and a reliable artwork management system,
+            becoming an accessible and forward-looking platform for contemporary art.</p>
+          </div>
           <div className="mt-10 space-y-4 rounded-3xl border border-white/10 bg-stone-900/60 p-6 text-sm text-stone-200">
             {info.map((row) => (
               <div key={row.label}>
