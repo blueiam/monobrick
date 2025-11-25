@@ -26,6 +26,7 @@ export function SiteHeader({ transparent }: Props) {
             width={120}
             height={32}
             priority
+            className="h-8 w-auto"
           />
         </Link>
 

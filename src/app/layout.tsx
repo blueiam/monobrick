@@ -22,7 +22,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${plusJakarta.variable} bg-stone-950 text-white`}>
+      <body 
+        className={`${plusJakarta.variable} bg-stone-950 text-white`}
+        suppressHydrationWarning
+      >
         <SiteHeader transparent />
         <main>{children}</main>
         <SiteFooter />
