@@ -1,0 +1,18 @@
+{
+  "R": 94,
+  "r": 35,
+  "d": 59,
+  "cycles": 14,
+  "loops": 1700,
+  "speed": 10,
+  "xFactor": 0.5411827755623944,
+  "yFactor": 1.5652660577107782,
+  "centerX": 533,
+  "centerY": 400,
+  "rotation": 59,
+  "strokeColor": "#607d8b",
+  "backgroundColor": "hsl(303, 34%, 10%)",
+  "strokeWidth": 2.5,
+  "exported": "2025-11-26T04:54:10.898Z",
+  "generator": "Spirograph Generator"
+}

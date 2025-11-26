@@ -19,12 +19,25 @@ npm run dev
 
 ### Environment variables
 
-Create a `.env.local` file and set the Supabase credentials that expose the `posts` table:
+**For Local Development:**
+
+Create a `.env.local` file in the project root and set the Supabase credentials:
 
 ```bash
-SUPABASE_URL="https://xyzcompany.supabase.co"
-SUPABASE_ANON_KEY="public-anon-key"
+NEXT_PUBLIC_SUPABASE_URL="https://your-project.supabase.co"
+NEXT_PUBLIC_SUPABASE_ANON_KEY="your-anon-key"
 ```
+
+**Important:** Client-side components require the `NEXT_PUBLIC_` prefix for environment variables to be accessible in the browser.
+
+**For Vercel Deployment:**
+
+1. Go to your Vercel project dashboard
+2. Navigate to **Settings** → **Environment Variables**
+3. Add the following variables for **Production**, **Preview**, and **Development**:
+   - `NEXT_PUBLIC_SUPABASE_URL` = `https://your-project.supabase.co`
+   - `NEXT_PUBLIC_SUPABASE_ANON_KEY` = `your-anon-key`
+4. **Redeploy** your application after adding the variables
 
 The News page (`/news`) queries `id, title, content, category, created_at, image_url, file_url` from the `posts` table and sorts by `created_at` descending. When the variables are missing or the query fails, the fallback editorial entries in `src/data/news.ts` are used so the UI never breaks.
 

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArtworkGallery } from "@/components/artwork-gallery";
 import { FeaturedArtist } from "@/components/featured-artist";
+import { HeroVideoPlayer } from "@/components/hero/HeroVideoPlayer";
 
 export default function Home() {
   return (
@@ -17,17 +18,8 @@ export default function Home() {
 
 function HeroSection() {
   return (
-    <section className="relative flex h-screen w-full flex-col justify-end overflow-hidden px-6 pb-16 pt-0 mt-0 text-white shadow-black/40 sm:px-10">
-      <video
-        className="absolute inset-0 h-full w-full object-cover"
-        autoPlay
-        loop
-        muted
-        playsInline
-        poster="/images/hero-transforming-cycle.jpg"
-      >
-        <source src="/videos/black_box.mp4" type="video/mp4" />
-      </video>
+    <section className="relative mt-0 flex h-screen w-full flex-col justify-end overflow-hidden bg-black px-6 pb-16 pt-0 text-white shadow-black/40 sm:px-10">
+      <HeroVideoPlayer />
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/55 to-black/85" />
 
       <div className="relative z-10">
