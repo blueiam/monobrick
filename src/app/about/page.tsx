@@ -105,7 +105,7 @@ export default function AboutPage() {
       <div className="relative z-10 mx-auto max-w-5xl px-6 pt-32 pb-20 lg:px-8">
         <div className="max-w-2xl">
           <p className="text-xs uppercase tracking-[0.4em] text-cyan-300/80 mb-6">
-            About Gallery
+            About 
           </p>
           
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/50 mb-12">
