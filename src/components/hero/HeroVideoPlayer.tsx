@@ -2,7 +2,7 @@
 
 import { useCallback, useState } from "react";
 
-const videos = ["/videos/home_video_2.mp4", "/videos/black_box.mp4"];
+const videos = ["/videos/model_runway.mp4", "/videos/black_box.mp4"];
 
 export function HeroVideoPlayer() {
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
@@ -24,4 +24,7 @@ export function HeroVideoPlayer() {
     </video>
   );
 }
+
+
+
 
